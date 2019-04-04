@@ -1,9 +1,6 @@
 package com.example.jpademo.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +13,16 @@ public class Category {
     private String categoryName;
 
 
+    @ManyToMany(mappedBy = "categories")
     private Set<Recipe> recipes = new HashSet<>();
+
+    public Set<Recipe> getRecipes() {
+        return recipes;
+    }
+
+    public void setRecipes(Set<Recipe> recipes) {
+        this.recipes = recipes;
+    }
 
     public Category() {
     }

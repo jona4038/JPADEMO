@@ -1,9 +1,6 @@
 package com.example.jpademo.Bootstrap;
 
-import com.example.jpademo.Model.Ingredient;
-import com.example.jpademo.Model.Notes;
-import com.example.jpademo.Model.Recipe;
-import com.example.jpademo.Model.UnitOfMeasure;
+import com.example.jpademo.Model.*;
 import com.example.jpademo.Repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -32,21 +29,24 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         r1.setNotes(notes);
         recipes.add(r1);
 
-
-
-
         Ingredient ingredient = new Ingredient();
         ingredient.setName("Avocado");
         ingredient.setGrams(BigDecimal.valueOf(500));
         r1.getIngredients().add(ingredient);
         ingredient.setRecipe(r1);
 
+        Category category1 = new Category();
+        category1.setCategoryName("Mexican");
+        category1.getRecipes().add(r1);
+        r1.getCategories().add(category1);
 
-
+        UnitOfMeasure unitOfMeasure1 = new UnitOfMeasure();
+        unitOfMeasure1.setUom("Teaspoon");
+        unitOfMeasure1.setIngredient(ingredient);
+        ingredient.setUnitOfMeasure(unitOfMeasure1);
 
 
         recipes.add(r1);
-
         return recipes;
     }
 

@@ -18,13 +18,21 @@ public class Recipe {
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Ingredient> ingredients = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "recipe_category", joinColumns = @JoinColumn(name = "recipe_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
     public Notes getNotes() {
         return notes;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
     }
 
     public void setNotes(Notes notes) {
