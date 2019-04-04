@@ -11,7 +11,7 @@ public class UnitOfMeasure {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private Ingredient ingredient;
 
     public UnitOfMeasure() {

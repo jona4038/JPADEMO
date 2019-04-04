@@ -45,7 +45,6 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         unitOfMeasure1.setIngredient(ingredient);
         ingredient.setUnitOfMeasure(unitOfMeasure1);
 
-
         recipes.add(r1);
         return recipes;
     }
